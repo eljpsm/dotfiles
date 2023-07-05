@@ -1,0 +1,32 @@
+# Load zplug plugins.
+source ~/.zplug/init.zsh
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# Install missing plugins.
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/development/flutter/bin"
+
+export GIT_CRYPT_SECRETS_KEY_PATH="$HOME/.gnupg/git-crypt-.secrets"
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+## [Completion] 
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/eljpsm/.dart-cli-completion/zsh-config.zsh ]] && . /home/eljpsm/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
