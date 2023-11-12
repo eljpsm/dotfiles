@@ -8,13 +8,3 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore-global
-[alias]
-	c = commit
-	co = checkout
-	cob = checkout -b
-	m = commit --amend
-	l = log
-	b = branch
-	s = status
-	a = add
-	d = diff --cached

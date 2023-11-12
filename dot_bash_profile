@@ -1,0 +1,9 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+export GIT_CRYPT_SECRETS_KEY_PATH="$HOME/.gnupg/git-crypt-.secrets"
