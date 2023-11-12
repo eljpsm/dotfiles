@@ -19,12 +19,7 @@ eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.pub-cache/bin"
-export PATH="$PATH:$HOME/development/flutter/bin"
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-## [Completion] 
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/eljpsm/.dart-cli-completion/zsh-config.zsh ]] && . /home/eljpsm/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
