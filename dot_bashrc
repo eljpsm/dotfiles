@@ -116,6 +116,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Provide the git-crypt key
+export GIT_CRYPT_SECRETS_KEY_PATH="$HOME/.gnupg/git-crypt-.secrets"
+
+# Add direnv
+eval "$(direnv hook bash)"
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# Add binaries
+export PATH="$PATH:$HOME/flutter/bin"
+export GOPATH="$HOME/workspace"
+export GOROOT="$HOME/go"
+export PATH="$PATH:$HOME/go/bin"
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/eljpsm/.pulumi/bin
+
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-eval "$(direnv hook bash)"
+# pnpm
+export PNPM_HOME="/home/eljpsm/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
