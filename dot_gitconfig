@@ -7,4 +7,3 @@
 	gpgSign = false
 [core]
 	editor = nvim
-	excludesfile = ~/.gitignore-global
